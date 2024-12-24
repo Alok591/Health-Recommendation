@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+    <h1>Diseases</h1>
+</header>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="nutrition.html">Nutrition</a>
+    <a href="diseases.html">Diseases</a>
+    <a href="about.html">About</a>
+</nav>
+
+<div class="content">
+    <h2>Understanding Common Diseases</h2>
+    <p>Diseases are disorders that affect the structure or function of part or all of an organism. They can be caused by pathogens such as bacteria, viruses, and fungi, or arise from genetic, lifestyle, or environmental factors.</p>
+    <p>Here are some common types of diseases:</p>
+    <ul>
+        <li><strong>Infectious Diseases</strong>: Caused by pathogens. Examples include influenza, COVID-19, and tuberculosis.</li>
+        <li><strong>Chronic Diseases</strong>: Long-term diseases such as diabetes, heart disease, and arthritis.</li>
+        <li><strong>Genetic Disorders</strong>: Caused by mutations in genes. Examples include cystic fibrosis and sickle cell anemia.</li>
+    </ul>
+
+    <h3>Statistics on Common Diseases</h3>
+    <div class="chart-container">
+        <canvas id="diseaseChart"></canvas>
+    </div>
+</div>
+
+<script>
+    const ctx = document.getElementById('diseaseChart').getContext('2d');
+    const diseaseChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Infectious', 'Chronic', 'Genetic'],
+            datasets: [{
+                label: 'Number of Cases (in millions)',
+                data: [500, 600, 50],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
